@@ -37,3 +37,7 @@ Output text file.
 ```text
 4 0.052083 0.185185 0.026042 0.018519
 ```
+
+### Motiviation
+
+I used Darknet for real-time object detection and classification. Sometimes you need to collect your own trainig dataset for train your model. I collected training dataset images and fine awesome [tool](https://github.com/tzutalin/labelImg) for labeling images. But it generates xml files. So I needed to implement tool which translates from ImageNet xml format to Darknet text format.
