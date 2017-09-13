@@ -1,0 +1,21 @@
+<annotation>
+	<filename>image-0000016.jpg</filename>
+	<size>
+		<width>1920</width>
+		<height>1080</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>sedan</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>75</xmin>
+			<ymin>190</ymin>
+			<xmax>125</xmax>
+			<ymax>210</ymax>
+		</bndbox>
+	</object>
+</annotation>
