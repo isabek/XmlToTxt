@@ -1,4 +1,4 @@
-# XmlToTxt.
+# XmlToTxt
 ImageNet file xml format to [Darknet](https://github.com/pjreddie/darknet) text format.
 
 ### Installation
