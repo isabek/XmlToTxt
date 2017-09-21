@@ -1,6 +1,5 @@
 bus
-microbus
 minivan
-suv
-sedan
+auto
 truck
+minibus
