@@ -25,6 +25,9 @@ class Transformer(object):
     def to_darknet_format(self, annotation, classes):
         result = []
         for obj in annotation.objects:
+            if obj.name not in classes:
+                print("Please, add '%s' to classes.txt file." % obj.name)
+                exit()
             x, y, width, height = self.get_object_params(obj, annotation.size)
             result.append("%d %.6f %.6f %.6f %.6f" % (classes[obj.name], x, y, width, height))
         return "\n".join(result)
