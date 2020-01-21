@@ -3,3 +3,4 @@ minivan
 auto
 truck
 minibus
+sedan
