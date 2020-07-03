@@ -7,7 +7,7 @@
 	</size>
 	<segmented>0</segmented>
 	<object>
-		<name>sedan</name>
+		<name>bus</name>
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>
