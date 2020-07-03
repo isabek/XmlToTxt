@@ -7,7 +7,7 @@
 	</size>
 	<segmented>0</segmented>
 	<object>
-		<name>sedan</name>
+		<name>minibus</name>
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>
@@ -19,7 +19,7 @@
 		</bndbox>
 	</object>
 	<object>
-		<name>sedan</name>
+		<name>auto</name>
 		<pose>Unspecified</pose>
 		<truncated>0</truncated>
 		<difficult>0</difficult>
