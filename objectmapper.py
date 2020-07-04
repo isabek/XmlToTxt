@@ -1,5 +1,5 @@
 import logging
-
+import os
 import declxml as xml
 
 
@@ -25,14 +25,16 @@ class ObjectMapper(object):
             xml.string("filename")
         ])
 
-    def bind(self, xml_file_path):
-        return xml.parse_from_file(self.processor, xml_file_path=xml_file_path)
+    def bind(self, xml_file_path, xml_dir):
+        ann = xml.parse_from_file(self.processor, xml_file_path=os.path.join(xml_dir, xml_file_path))
+        ann.filename = xml_file_path
+        return ann
 
-    def bind_files(self, xml_file_paths):
+    def bind_files(self, xml_file_paths, xml_dir):
         result = []
         for xml_file_path in xml_file_paths:
             try:
-                result.append(self.bind(xml_file_path=xml_file_path))
+                result.append(self.bind(xml_file_path=xml_file_path,xml_dir=xml_dir))
             except Exception as e:
                 logging.error("%s", e.args)
         return result

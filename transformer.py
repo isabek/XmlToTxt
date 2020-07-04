@@ -14,12 +14,16 @@ class Transformer(object):
         xml_files = reader.get_xml_files()
         classes = reader.get_classes()
         object_mapper = ObjectMapper()
-        annotations = object_mapper.bind_files(xml_files)
+        annotations = object_mapper.bind_files(xml_files,xml_dir=self.xml_dir)
         self.write_to_txt(annotations, classes)
 
     def write_to_txt(self, annotations, classes):
         for annotation in annotations:
-            with open(os.path.join(self.out_dir, self.darknet_filename_format(annotation.filename)), "w+") as f:
+            output_path = os.path.join(self.out_dir, self.darknet_filename_format(annotation.filename))
+            print(os.path.dirname(output_path))
+            if not os.path.exists(os.path.dirname(output_path)):
+                os.makedirs(os.path.dirname(output_path))
+            with open(output_path, "w+") as f:
                 f.write(self.to_darknet_format(annotation, classes))
 
     def to_darknet_format(self, annotation, classes):
