@@ -34,7 +34,7 @@ class ObjectMapper(object):
         result = []
         for xml_file_path in xml_file_paths:
             try:
-                result.append(self.bind(xml_file_path=xml_file_path,xml_dir=xml_dir))
+                result.append(self.bind(xml_file_path=xml_file_path, xml_dir=xml_dir))
             except Exception as e:
                 logging.error("%s", e.args)
         return result

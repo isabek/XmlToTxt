@@ -14,7 +14,7 @@ class Transformer(object):
         xml_files = reader.get_xml_files()
         classes = reader.get_classes()
         object_mapper = ObjectMapper()
-        annotations = object_mapper.bind_files(xml_files,xml_dir=self.xml_dir)
+        annotations = object_mapper.bind_files(xml_files, xml_dir=self.xml_dir)
         self.write_to_txt(annotations, classes)
 
     def write_to_txt(self, annotations, classes):
