@@ -7,9 +7,12 @@ class Reader(object):
 
     def get_xml_files(self):
         xml_filenames = []
-        for xml_filename in os.listdir(self.xml_dir):
-            if xml_filename.endswith(".xml"):
-                xml_filenames.append(os.path.join(self.xml_dir, xml_filename))
+        for root, subdirectories, files in os.walk(self.xml_dir):
+            for filename in files:
+                if filename.endswith(".xml"):
+                    file_path = os.path.join(root, filename)
+                    file_path = os.path.relpath(file_path, start=self.xml_dir)
+                    xml_filenames.append(file_path)    
         return xml_filenames
 
     @staticmethod
