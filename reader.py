@@ -17,6 +17,6 @@ class Reader(object):
 
     @staticmethod
     def get_classes(filename="classes.txt"):
-        with open(os.path.join(os.path.dirname(os.path.realpath('__file__')), filename), "r") as f:
+        with open(os.path.join(os.path.dirname(os.path.realpath('__file__')), filename), "r", encoding="utf8") as f:
             lines = f.readlines()
             return {value: key for (key, value) in enumerate(list(map(lambda x: x.strip(), lines)))}

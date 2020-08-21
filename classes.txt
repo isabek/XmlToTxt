@@ -3,4 +3,4 @@ minivan
 auto
 truck
 minibus
-sedan
+가각
