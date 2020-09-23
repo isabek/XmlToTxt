@@ -16,7 +16,7 @@ class Reader(object):
         return xml_filenames
 
     @staticmethod
-    def get_classes(filename="classes.txt"):
+    def get_classes(filename):
         with open(os.path.join(os.path.dirname(os.path.realpath('__file__')), filename), "r", encoding="utf8") as f:
             lines = f.readlines()
             return {value: key for (key, value) in enumerate(list(map(lambda x: x.strip(), lines)))}

@@ -5,14 +5,15 @@ from reader import Reader
 
 
 class Transformer(object):
-    def __init__(self, xml_dir, out_dir):
+    def __init__(self, xml_dir, out_dir, class_file):
         self.xml_dir = xml_dir
         self.out_dir = out_dir
+        self.class_file = class_file
 
     def transform(self):
         reader = Reader(xml_dir=self.xml_dir)
         xml_files = reader.get_xml_files()
-        classes = reader.get_classes()
+        classes = reader.get_classes(self.class_file)
         object_mapper = ObjectMapper()
         annotations = object_mapper.bind_files(xml_files, xml_dir=self.xml_dir)
         self.write_to_txt(annotations, classes)

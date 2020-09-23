@@ -1,0 +1,6 @@
+bus
+minivan
+auto
+truck
+minibus
+가각
