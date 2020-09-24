@@ -36,10 +36,6 @@ def main():
         print("%s file is not readable." % class_file)
         sys.exit()
     
-    if not os.path.splitext(class_file)[-1] == ".txt":
-        print("%s file is not a text file." % class_file)
-        sys.exit()
-
     transformer = Transformer(xml_dir=xml_dir, out_dir=out_dir, class_file=class_file)
     transformer.transform()
 
