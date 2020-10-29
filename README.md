@@ -12,9 +12,15 @@ sudo pip install -r requirements.txt
 python xmltotxt.py -c cls.txt -xml xml -out out
 ```
 #### Mandatory arguments
+
+```bash
 -xml 
+```
 #### Optional arguments
+
+```bash
 -c, -out
+```
 
 ### Example
 
