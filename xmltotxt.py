@@ -10,7 +10,7 @@ def main():
     parser = argparse.ArgumentParser(description="Formatter from ImageNet xml to Darknet text format")
     parser.add_argument("-enu", help="Enumerate classes and write down to classes file", action='store_true')
     parser.add_argument("-xml", help="Relative location of xml files directory", required=True)
-    parser.add_argument("-out", help="Relative location of output txt files directory", default="out")
+    parser.add_argument("-out", help="Relative location of output txt files directory", default=None)
     parser.add_argument("-c", help="Relative path to classes file", default="classes.txt")
     args = parser.parse_args()
 
@@ -19,13 +19,16 @@ def main():
         print("Provide the correct folder for xml files.")
         sys.exit()
 
-    out_dir = os.path.join(os.path.dirname(os.path.realpath('__file__')), args.out)
-    if not os.path.exists(out_dir):
-        os.makedirs(out_dir)
+    if args.out:
+        out_dir = os.path.join(os.path.dirname(os.path.realpath('__file__')), args.out)
+        if not os.path.exists(out_dir):
+            os.makedirs(out_dir)
 
-    if not os.access(out_dir, os.W_OK):
-        print("%s folder is not writeable." % out_dir)
-        sys.exit()
+        if not os.access(out_dir, os.W_OK):
+            print("%s folder is not writeable." % out_dir)
+            sys.exit()
+    else:
+        out_dir = args.out
     
     class_file = os.path.join(os.path.dirname(os.path.realpath('__file__')), args.c)
 

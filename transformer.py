@@ -21,9 +21,9 @@ class Transformer(object):
         if self.isEnumerate:
             self.enumerate_and_write_classes(annotations)
 
-        classes = reader.get_classes(self.class_file)
-
-        self.write_to_txt(annotations, classes)
+        if self.out_dir:
+            classes = reader.get_classes(self.class_file)
+            self.write_to_txt(annotations, classes)
 
     def write_to_txt(self, annotations, classes):
         for annotation in annotations:
