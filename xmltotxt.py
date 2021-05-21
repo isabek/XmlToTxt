@@ -8,6 +8,7 @@ from transformer import Transformer
 
 def main():
     parser = argparse.ArgumentParser(description="Formatter from ImageNet xml to Darknet text format")
+    parser.add_argument("-enu", help="Enumerate classes and write down to classes file", action='store_true')
     parser.add_argument("-xml", help="Relative location of xml files directory", required=True)
     parser.add_argument("-out", help="Relative location of output txt files directory", default="out")
     parser.add_argument("-c", help="Relative path to classes file", default="classes.txt")
@@ -28,15 +29,15 @@ def main():
     
     class_file = os.path.join(os.path.dirname(os.path.realpath('__file__')), args.c)
 
-    if not os.access(class_file, os.F_OK):
+    if not os.access(class_file, os.F_OK) and not args.enu:
         print("%s file is missing." % class_file)
         sys.exit()
 
-    if not os.access(class_file, os.R_OK):
+    if not os.access(class_file, os.R_OK) and not args.enu:
         print("%s file is not readable." % class_file)
         sys.exit()
     
-    transformer = Transformer(xml_dir=xml_dir, out_dir=out_dir, class_file=class_file)
+    transformer = Transformer(xml_dir=xml_dir, out_dir=out_dir, class_file=class_file, isEnumerate=args.enu)
     transformer.transform()
 
 
